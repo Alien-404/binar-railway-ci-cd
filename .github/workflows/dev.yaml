@@ -1,4 +1,4 @@
-name: Deploy to Railway
+name: Deploy to Railway Dev Env
 
 on:
   push:
@@ -26,4 +26,4 @@ jobs:
       - name: Deploy
         run: railway up
         env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_DEV_TOKEN }}
