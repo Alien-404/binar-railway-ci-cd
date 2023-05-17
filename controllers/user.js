@@ -23,9 +23,9 @@ module.exports = {
                 name, email, password: hashPassword
             });
 
-            return res.status(200).json({
+            return res.status(201).json({
                 status: true,
-                message: 'user registered!',
+                message: 'user created!',
                 data: {
                     id: user.id,
                     name: user.name,
@@ -43,18 +43,18 @@ module.exports = {
 
             const user = await User.findOne({where: {email}});
             if (!user) {
-                return res.status(404).json({
+                return res.status(400).json({
                     status: false,
-                    message: 'email or password is not correct!',
+                    message: 'credential is not valid!',
                     data: null
                 });
             }
 
             const passwordCorrect = await bcryp.compare(password, user.password);
             if (!passwordCorrect) {
-                return res.status(404).json({
+                return res.status(400).json({
                     status: false,
-                    message: 'email or password is not correct!',
+                    message: 'credential is not valid!',
                     data: null
                 });
             }
@@ -68,7 +68,7 @@ module.exports = {
             const token = await jwt.sign(payload, JWT_SECRET_KEY);
             return res.status(200).json({
                 status: true,
-                message: 'success!',
+                message: 'login success!',
                 data: {
                     token: token
                 }
