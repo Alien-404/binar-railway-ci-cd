@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon bin/www",
     "test": "jest",
-    "start": "node bin/www"
+    "start": "node bin/www",
+    "migrate": "npx sequelize-cli db:migrate"
   },
   "keywords": [],
   "author": "",
@@ -24,5 +25,8 @@
     "supertest": "^6.3.3",
     "swagger-ui-express": "^4.6.2",
     "yaml": "^2.2.2"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.0"
   }
 }
