@@ -29,7 +29,7 @@ jobs:
           echo "DB_HOST_DEV=${{ secrets.DB_HOST_DEV }}" >> $GITHUB_ENV
 
       - name: Run db migrate
-        run: npm migrate
+        run: npm run migrate
 
       - name: Install Railway
         run: npm i -g @railway/cli
